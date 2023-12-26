@@ -58,6 +58,7 @@ public class Login extends javax.swing.JFrame {
         passwordField = new javax.swing.JTextField();
         usernameField = new javax.swing.JTextField();
         btn_login = new javax.swing.JButton();
+        btn_daftar = new javax.swing.JButton();
 
         jTextField2.setText("jTextField2");
 
@@ -75,6 +76,13 @@ public class Login extends javax.swing.JFrame {
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
+            }
+        });
+
+        btn_daftar.setText("SIGN UP");
+        btn_daftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_daftarActionPerformed(evt);
             }
         });
 
@@ -101,8 +109,10 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, 22))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addGap(72, 72, 72)
                 .addComponent(btn_login)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_daftar)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,9 +128,11 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_login)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_login)
+                    .addComponent(btn_daftar))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,6 +189,13 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_loginActionPerformed
 
+    private void btn_daftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daftarActionPerformed
+        // TODO add your handling code here:
+        Menu_signupPelanggan pelanggan = new Menu_signupPelanggan();
+                        pelanggan.setVisible(true);
+                        this.setVisible(false);
+    }//GEN-LAST:event_btn_daftarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -213,6 +232,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_daftar;
     private javax.swing.JButton btn_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
