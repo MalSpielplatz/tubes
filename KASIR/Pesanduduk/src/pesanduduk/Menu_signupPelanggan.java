@@ -37,7 +37,7 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
             username = text_username.getText();
             password = text_password.getText();
             display_name = text_dname.getText();
-            level = combo_level.getSelectedItem().toString();
+            level = text_level.getText();
             
         }
     }
@@ -91,11 +91,11 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
         text_password = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        combo_level = new javax.swing.JComboBox<>();
         btn_logout = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         text_dname = new javax.swing.JTextField();
         btn_input = new javax.swing.JButton();
+        text_level = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,8 +117,6 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel5.setText("Status");
 
-        combo_level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pelanggan", " " }));
-
         btn_logout.setText("LOGOUT");
         btn_logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +133,9 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
                 btn_inputActionPerformed(evt);
             }
         });
+
+        text_level.setText("Pelanggan");
+        text_level.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,19 +156,19 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel6))
-                                .addGap(6, 6, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(text_id_user)
+                                            .addComponent(text_id_user, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
                                             .addComponent(text_username)
                                             .addComponent(text_password)
                                             .addComponent(text_dname)
-                                            .addComponent(combo_level, 0, 332, Short.MAX_VALUE))
+                                            .addComponent(text_level, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
-                                        .addComponent(btn_input, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(btn_input, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
@@ -199,13 +200,13 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text_dname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(combo_level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_input, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                    .addComponent(text_level, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_input, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,8 +281,7 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_input;
-    private javax.swing.JButton btn_logout;
-    private javax.swing.JComboBox<String> combo_level;
+    public javax.swing.JButton btn_logout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -290,6 +290,7 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField text_dname;
     private javax.swing.JTextField text_id_user;
+    public javax.swing.JTextField text_level;
     private javax.swing.JTextField text_password;
     private javax.swing.JTextField text_username;
     // End of variables declaration//GEN-END:variables
