@@ -25,54 +25,55 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
      */
     public Menu_signupPelanggan() {
         initComponents();
-        refreshTable();
+//        refreshTable();
         k.getKoneksi();
     }
     
     class user extends Menu_signupPelanggan{
         int id_user;
-        String level, username, password, display_name;
+        String level, username, password, no_telp, email;
         
         public user(){
             username = text_username.getText();
             password = text_password.getText();
-            display_name = text_dname.getText();
+            email = text_email.getText();
+            no_telp = text_notelp.getText();
             level = text_level.getText();
             
         }
     }
     
-    public void refreshTable(){
-        model = new DefaultTableModel();
-        model.addColumn("id_user");
-        model.addColumn("Username");
-        model.addColumn("Password");
-        model.addColumn("Display Name");
-        model.addColumn("level");
-      
-        
-        try {
-            this.stat = k.getKoneksi().prepareStatement("SELECT * FROM user");
-            this.rs = this.stat.executeQuery();
-            while(rs.next()){
-                Object[] data = {
-                    rs.getString("id_user"),
-                    rs.getString("username"),
-                    rs.getString("password"),
-                    rs.getString("display_name"),
-                    rs.getString("level")
-                };
-                model.addRow(data);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-//        mengosongkan kembali form
-        text_id_user.setText("");
-        text_username.setText("");
-        text_password.setText("");
-        text_dname.setText("");
-    }
+//    public void refreshTable(){
+//        model = new DefaultTableModel();
+//        model.addColumn("id_user");
+//        model.addColumn("Username");
+//        model.addColumn("Password");
+//        model.addColumn("Display Name");
+//        model.addColumn("level");
+//      
+//        
+//        try {
+//            this.stat = k.getKoneksi().prepareStatement("SELECT * FROM user");
+//            this.rs = this.stat.executeQuery();
+//            while(rs.next()){
+//                Object[] data = {
+//                    rs.getString("id_user"),
+//                    rs.getString("username"),
+//                    rs.getString("password"),
+//                    rs.getString("display_name"),
+//                    rs.getString("level")
+//                };
+//                model.addRow(data);
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e.getMessage());
+//        }
+////        mengosongkan kembali form
+//        text_id_user.setText("");
+//        text_username.setText("");
+//        text_password.setText("");
+//        text_email.setText("");
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,9 +94,11 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btn_logout = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        text_dname = new javax.swing.JTextField();
+        text_email = new javax.swing.JTextField();
         btn_input = new javax.swing.JButton();
         text_level = new javax.swing.JTextField();
+        text_notelp = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,7 +128,7 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel6.setText("Display name");
+        jLabel6.setText("Email");
 
         btn_input.setText("INPUT");
         btn_input.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +139,9 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
 
         text_level.setText("Pelanggan");
         text_level.setEnabled(false);
+
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel7.setText("No Telp");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,26 +161,29 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(text_id_user, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                                            .addComponent(text_username)
-                                            .addComponent(text_password)
-                                            .addComponent(text_dname)
-                                            .addComponent(text_level, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(31, 31, 31)
-                                        .addComponent(btn_input, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                                    .addComponent(text_notelp, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(text_id_user, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                                        .addComponent(text_username)
+                                        .addComponent(text_password)
+                                        .addComponent(text_email)
+                                        .addComponent(text_level, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)))
                         .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(157, 157, 157)
+                                .addComponent(btn_input, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -198,15 +207,19 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_dname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_notelp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(text_level, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(btn_input, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -216,14 +229,20 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             user u = new user();
-            this.stat = k.getKoneksi().prepareStatement("INSERT INTO user VALUES(?,?,?,?,?)");
-            stat.setInt(1, 0);
-            stat.setString(2, u.username);
-            stat.setString(3, u.password);
-            stat.setString(4, u.display_name);
-            stat.setString(5, u.level);
-            stat.executeUpdate();
-            refreshTable();
+            if (u.username.isEmpty() || u.password.isEmpty() || u.email.isEmpty() || u.no_telp.isEmpty() || u.level.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data tidak lengkap");
+            } else {
+                this.stat = k.getKoneksi().prepareStatement("INSERT INTO user VALUES(?,?,?,?,?,?)");
+                stat.setInt(1, 0);
+                stat.setString(2, u.username);
+                stat.setString(3, u.password);
+                stat.setString(4, u.email);
+                stat.setString(5, u.no_telp);
+                stat.setString(6, u.level);
+                stat.executeUpdate();
+//                refreshTable();
+                JOptionPane.showMessageDialog(null, "Input berhasil");
+            }
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -288,9 +307,11 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField text_dname;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField text_email;
     private javax.swing.JTextField text_id_user;
     public javax.swing.JTextField text_level;
+    private javax.swing.JTextField text_notelp;
     private javax.swing.JTextField text_password;
     private javax.swing.JTextField text_username;
     // End of variables declaration//GEN-END:variables
