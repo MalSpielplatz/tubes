@@ -31,13 +31,14 @@ public class Menu_signup extends javax.swing.JFrame {
     
     class user extends Menu_signup{
         int id_user;
-        String level, username, password, display_name;
+        String level, username, password, email, no_telp;
         
         public user(){
             username = text_username.getText();
             password = text_password.getText();
-            display_name = text_dname.getText();
+            email = text_email.getText();
             level = combo_level.getSelectedItem().toString();
+            no_telp = text_notelp.getText();
             
         }
     }
@@ -45,9 +46,10 @@ public class Menu_signup extends javax.swing.JFrame {
     public void refreshTable(){
         model = new DefaultTableModel();
         model.addColumn("id_user");
-        model.addColumn("Username");
-        model.addColumn("Password");
-        model.addColumn("Display Name");
+        model.addColumn("username");
+        model.addColumn("password");
+        model.addColumn("email");
+        model.addColumn("no_telp");
         model.addColumn("level");
         tbl_signup.setModel(model);
         
@@ -59,7 +61,8 @@ public class Menu_signup extends javax.swing.JFrame {
                     rs.getString("id_user"),
                     rs.getString("username"),
                     rs.getString("password"),
-                    rs.getString("display_name"),
+                    rs.getString("email"),
+                    rs.getString("no_telp"),
                     rs.getString("level")
                 };
                 model.addRow(data);
@@ -71,7 +74,8 @@ public class Menu_signup extends javax.swing.JFrame {
         text_id_user.setText("");
         text_username.setText("");
         text_password.setText("");
-        text_dname.setText("");
+        text_email.setText("");
+        text_notelp.setText("");
     }
 
     /**
@@ -101,7 +105,9 @@ public class Menu_signup extends javax.swing.JFrame {
         btn_logout = new javax.swing.JButton();
         btn_menu_masakan = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        text_dname = new javax.swing.JTextField();
+        text_email = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        text_notelp = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,15 +133,23 @@ public class Menu_signup extends javax.swing.JFrame {
 
         tbl_signup.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id_user", "username", "password", "email", "no_telp"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         tbl_signup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_signupMouseClicked(evt);
@@ -205,50 +219,62 @@ public class Menu_signup extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel6.setText("Display name");
+        jLabel6.setText("Email");
+
+        text_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_emailActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel8.setText("No Telp");
+
+        text_notelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_notelpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btn_menu_masakan)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(btn_menu_masakan)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_logout))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5)
                                     .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(text_id_user)
-                                    .addComponent(text_username)
-                                    .addComponent(text_password)
-                                    .addComponent(text_dname)
-                                    .addComponent(combo_level, 0, 332, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(text_id_user, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(text_username, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(text_password, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(combo_level, javax.swing.GroupLayout.Alignment.TRAILING, 0, 332, Short.MAX_VALUE)
+                                    .addComponent(text_email)
+                                    .addComponent(text_notelp))))
                         .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, Short.MAX_VALUE))
-                                .addGap(2, 2, 2)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -262,25 +288,29 @@ public class Menu_signup extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(text_id_user, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_id_user, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(text_username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_dname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_notelp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(combo_level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,15 +324,25 @@ public class Menu_signup extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             user u = new user();
-            this.stat = k.getKoneksi().prepareStatement("UPDATE user SET username=?,password=?,display_name=?,level=? where id_user=?");
-            stat.setString(1, u.username);
-            stat.setString(2, u.password);
-            stat.setString(3, u.display_name);
-            stat.setString(4, u.level);
-            stat.setString(5, text_id_user.getText());
-            stat.executeUpdate();
-            refreshTable();
-        } catch (Exception e) {
+            if (u.username.isEmpty() || u.password.isEmpty() || u.email.isEmpty() || u.no_telp.isEmpty() || u.level.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data tidak lengkap");
+            } else {
+                this.stat = k.getKoneksi().prepareStatement("UPDATE user SET username=?, password=?, email=?, no_telp=?, level=? where id_user=?");
+                stat.setString(1, u.username);
+                stat.setString(2, u.password);
+                stat.setString(3, u.email);
+                stat.setString(4, u.no_telp);
+                stat.setString(5, u.level);
+                stat.setInt(6, u.id_user);
+                int rowsAffected = stat.executeUpdate();
+                if (rowsAffected > 0) {
+                    refreshTable();
+                    JOptionPane.showMessageDialog(null, "Update berhasil");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tidak ada baris yang terupdate");
+                }
+            }
+         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btn_updateActionPerformed
@@ -318,14 +358,20 @@ public class Menu_signup extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             user u = new user();
-            this.stat = k.getKoneksi().prepareStatement("INSERT INTO user VALUES(?,?,?,?,?)");
-            stat.setInt(1, 0);
-            stat.setString(2, u.username);
-            stat.setString(3, u.password);
-            stat.setString(4, u.display_name);
-            stat.setString(5, u.level);
-            stat.executeUpdate();
-            refreshTable();
+            if (u.username.isEmpty() || u.password.isEmpty() || u.email.isEmpty() || u.no_telp.isEmpty() || u.level.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Data tidak lengkap");
+            } else {
+                this.stat = k.getKoneksi().prepareStatement("INSERT INTO user VALUES(?,?,?,?,?,?)");
+                stat.setInt(1, 0);
+                stat.setString(2, u.username);
+                stat.setString(3, u.password);
+                stat.setString(4, u.email);
+                stat.setString(5, u.no_telp);
+                stat.setString(6, u.level);
+                stat.executeUpdate();
+                refreshTable();
+                JOptionPane.showMessageDialog(null, "Input berhasil");
+            }
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -337,7 +383,8 @@ public class Menu_signup extends javax.swing.JFrame {
         text_id_user.setText(model.getValueAt(tbl_signup.getSelectedRow(),0).toString());
         text_username.setText(model.getValueAt(tbl_signup.getSelectedRow(),1).toString());
         text_password.setText(model.getValueAt(tbl_signup.getSelectedRow(),2).toString());
-        text_dname.setText(model.getValueAt(tbl_signup.getSelectedRow(),3).toString());
+        text_email.setText(model.getValueAt(tbl_signup.getSelectedRow(),3).toString());
+        text_notelp.setText(model.getValueAt(tbl_signup.getSelectedRow(),4).toString());
         
     }//GEN-LAST:event_tbl_signupMouseClicked
 
@@ -349,6 +396,7 @@ public class Menu_signup extends javax.swing.JFrame {
             stat.setString(1, text_id_user.getText());
             stat.executeUpdate();
             refreshTable();
+            JOptionPane.showMessageDialog(null, "Berhasil menghapus user" + text_username.getText());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -366,6 +414,14 @@ public class Menu_signup extends javax.swing.JFrame {
         masak.btn_signup.setEnabled(true);
         
     }//GEN-LAST:event_btn_menu_masakanActionPerformed
+
+    private void text_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_emailActionPerformed
+
+    private void text_notelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_notelpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_notelpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -416,11 +472,13 @@ public class Menu_signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_signup;
-    private javax.swing.JTextField text_dname;
+    private javax.swing.JTextField text_email;
     private javax.swing.JTextField text_id_user;
+    private javax.swing.JTextField text_notelp;
     private javax.swing.JTextField text_password;
     private javax.swing.JTextField text_username;
     // End of variables declaration//GEN-END:variables
