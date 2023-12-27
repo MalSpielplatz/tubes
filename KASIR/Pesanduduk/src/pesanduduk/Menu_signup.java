@@ -333,7 +333,7 @@ public class Menu_signup extends javax.swing.JFrame {
                 stat.setString(3, u.email);
                 stat.setString(4, u.no_telp);
                 stat.setString(5, u.level);
-                stat.setInt(6, u.id_user);
+                stat.setString(6, text_id_user.getText());
                 int rowsAffected = stat.executeUpdate();
                 if (rowsAffected > 0) {
                     refreshTable();
