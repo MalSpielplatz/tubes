@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Email"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="text_dname1">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -39,52 +27,45 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btn_back" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="combo_level" min="-2" pref="96" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="text_id_user" min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btn_logout" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
+                                      <EmptySpace min="41" pref="6" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="text_username" alignment="1" pref="332" max="32767" attributes="0"/>
+                                          <Component id="text_id_user" pref="332" max="32767" attributes="0"/>
+                                          <Component id="text_username" alignment="1" max="32767" attributes="0"/>
                                           <Component id="text_password" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="text_email" max="32767" attributes="0"/>
-                                          <Component id="text_notelp" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="text_dname" max="32767" attributes="0"/>
+                                          <Component id="text_level" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="8" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="btn_signup" min="-2" pref="96" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="244" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="btn_input" min="-2" pref="276" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -95,36 +76,37 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btn_back" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_logout" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="text_username" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="text_password" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="text_email" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                  <Component id="text_notelp" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Component id="btn_signup" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
-              <Component id="text_id_user" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="combo_level" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="text_id_user" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="text_username" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="text_password" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="text_dname" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="text_level" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btn_input" min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -139,6 +121,14 @@
         <Property name="text" type="java.lang.String" value="SIGN UP"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="ID User"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -151,19 +141,10 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_id_userActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="text_username">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_usernameActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="text_password">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_passwordActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -173,28 +154,20 @@
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="combo_level">
+    <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Pelanggan"/>
-            <StringItem index="1" value=" "/>
-          </StringArray>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="18" style="1"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="Status"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_levelActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_back">
+    <Component class="javax.swing.JButton" name="btn_logout">
       <Properties>
-        <Property name="text" type="java.lang.String" value="BACK"/>
+        <Property name="text" type="java.lang.String" value="LOGOUT"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_backActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_logoutActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -205,37 +178,30 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Email"/>
+        <Property name="text" type="java.lang.String" value="Display name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="text_email">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_emailActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="text_dname">
     </Component>
-    <Component class="javax.swing.JButton" name="btn_signup">
+    <Component class="javax.swing.JButton" name="btn_input">
       <Properties>
-        <Property name="text" type="java.lang.String" value="SIGN UP"/>
+        <Property name="text" type="java.lang.String" value="INPUT"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_signupActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_inputActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JTextField" name="text_level">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="No Telp"/>
+        <Property name="text" type="java.lang.String" value="Pelanggan"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="text_notelp">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_notelpActionPerformed"/>
-      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
