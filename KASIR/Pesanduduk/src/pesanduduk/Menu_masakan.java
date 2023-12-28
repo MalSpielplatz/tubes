@@ -360,9 +360,12 @@ public class Menu_masakan extends javax.swing.JFrame {
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
         // TODO add your handling code here:
-        Login l = new Login();
-        l.setVisible(true);
-        this.setVisible(false);
+        int confirm = JOptionPane.showConfirmDialog(null, "Mau Logout?", "Konfirmasi Logout", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            Login l = new Login();
+            l.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btn_logoutActionPerformed
 
     /**
