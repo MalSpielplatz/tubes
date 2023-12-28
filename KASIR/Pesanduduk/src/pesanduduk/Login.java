@@ -29,13 +29,14 @@ public class Login extends javax.swing.JFrame {
     
     class user{
         int id_user;
-        String level, username, password, display_name;
+        String level, username, password, email, no_telp;
         
         public user(){
             this.id_user = 0;
             this.username = usernameField.getText();
             this.password = passwordField.getText();
-            this.display_name = "";
+            this.email = "";
+            this.no_telp = "";
             this.level = "";
         }
     }
@@ -136,15 +137,15 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         user u = new user();
+        
         try {
-            this.stat = k.getKoneksi().prepareStatement("SELECT * FROM user WHERE username='"+u.username+"' and password='"+u.password+"';");
+            this.stat = k.getKoneksi().prepareStatement("SELECT * FROM user WHERE username=? and password=?;");
+            this.stat.setString(1, u.username);
+            this.stat.setString(2, u.password);
             this.rs = this.stat.executeQuery();
-            while(rs.next()){
+            
+            if (rs.next()){
                 u.level = rs.getString("level");
-            }
-            if (u.level==""){
-                JOptionPane.showMessageDialog(null, "AKUN TIDAK DITEKMUKAN");
-            }else{
                 switch(u.level){
                     case "Admin":
                         Menu_signup sig = new Menu_signup();
@@ -179,6 +180,10 @@ public class Login extends javax.swing.JFrame {
                         masakan.btn_logout.setEnabled(true);
                         break;
                 }
+            } else if (u.username.isEmpty() || (u.password.isEmpty())) {
+                JOptionPane.showMessageDialog(null, "Tolong isi Username & Password");
+            } else{
+                JOptionPane.showMessageDialog(null, "Username/Password salah");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
