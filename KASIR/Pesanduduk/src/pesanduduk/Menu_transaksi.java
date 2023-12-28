@@ -160,6 +160,12 @@ public class Menu_transaksi extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel5.setText("Status");
 
+        combo_id_masakan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_id_masakanActionPerformed(evt);
+            }
+        });
+
         table_transaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -428,6 +434,10 @@ public class Menu_transaksi extends javax.swing.JFrame {
         masak.btn_update.setEnabled(true);
         masak.btn_transaksi.setEnabled(true);
     }//GEN-LAST:event_btn_menu_masakanActionPerformed
+
+    private void combo_id_masakanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_id_masakanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_id_masakanActionPerformed
 
     /**
      * @param args the command line arguments

@@ -113,7 +113,7 @@ public class Menu_signup extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SIGN UP");
+        jLabel1.setText("User Management");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel2.setText("ID User");
@@ -130,6 +130,11 @@ public class Menu_signup extends javax.swing.JFrame {
         jLabel5.setText("Status");
 
         combo_level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Pelanggan", "Resto" }));
+        combo_level.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_levelActionPerformed(evt);
+            }
+        });
 
         tbl_signup.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -272,7 +277,7 @@ public class Menu_signup extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(2, 2, 2)))
                 .addContainerGap())
@@ -396,7 +401,7 @@ public class Menu_signup extends javax.swing.JFrame {
             stat.setString(1, text_id_user.getText());
             stat.executeUpdate();
             refreshTable();
-            JOptionPane.showMessageDialog(null, "Berhasil menghapus user" + text_username.getText());
+            JOptionPane.showMessageDialog(null, "Berhasil menghapus user");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -422,6 +427,10 @@ public class Menu_signup extends javax.swing.JFrame {
     private void text_notelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_notelpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_text_notelpActionPerformed
+
+    private void combo_levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_levelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_levelActionPerformed
 
     /**
      * @param args the command line arguments
