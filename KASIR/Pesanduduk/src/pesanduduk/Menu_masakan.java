@@ -100,7 +100,7 @@ public class Menu_masakan extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ORDER");
+        jLabel1.setText("DAFTAR MASAKAN");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel2.setText("ID Masakan");
@@ -109,6 +109,11 @@ public class Menu_masakan extends javax.swing.JFrame {
         jLabel3.setText("Nama Masakan");
 
         text_id_masakan.setEnabled(false);
+        text_id_masakan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_id_masakanActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel4.setText("Harga");
@@ -202,7 +207,7 @@ public class Menu_masakan extends javax.swing.JFrame {
             }
         });
 
-        btn_signup.setText("MENU SIGN UP");
+        btn_signup.setText("MENU USER");
         btn_signup.setEnabled(false);
         btn_signup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,6 +372,10 @@ public class Menu_masakan extends javax.swing.JFrame {
             this.setVisible(false);
         }
     }//GEN-LAST:event_btn_logoutActionPerformed
+
+    private void text_id_masakanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_id_masakanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_id_masakanActionPerformed
 
     /**
      * @param args the command line arguments

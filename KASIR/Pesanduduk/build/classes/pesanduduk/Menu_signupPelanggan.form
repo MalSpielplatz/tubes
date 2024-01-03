@@ -140,6 +140,9 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_id_userActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="text_username">
     </Component>
