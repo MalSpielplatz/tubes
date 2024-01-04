@@ -130,7 +130,7 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
 
             if (rs.next()) {
                 int harga = rs.getInt("harga");
-                label_harga.setText("Rp."+ String.valueOf(harga));
+                label_harga.setText(String.valueOf(harga));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -147,7 +147,7 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
 
             if (rs.next()) {
                 int harga = rs.getInt("harga_meja");
-                text_hrg_meja.setText("Rp."+ String.valueOf(harga));
+                text_hrg_meja.setText(String.valueOf(harga));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -185,6 +185,8 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
         totalHarga += subtotal;
         String item = menuTerpilih + ", " + " (" + kuantitas + ")\n";
         textArea_pesanan.append(item);
+        
+        text_total_bayar.setText(String.valueOf(totalHarga));
     }
     
 //    private void updateTotalHargaDanDP() {
@@ -373,6 +375,11 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
         jLabel9.setText("Total bayar");
 
         text_total_bayar.setEnabled(false);
+        text_total_bayar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_total_bayarActionPerformed(evt);
+            }
+        });
 
         btn_menu_masakan.setText("Lihat Menu");
         btn_menu_masakan.addActionListener(new java.awt.event.ActionListener() {
@@ -729,6 +736,10 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
     private void text_jml_kursiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_jml_kursiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_text_jml_kursiActionPerformed
+
+    private void text_total_bayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_total_bayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_total_bayarActionPerformed
 
     /**
      * @param args the command line arguments
