@@ -157,6 +157,8 @@ public class Menu_reservasi extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,7 +194,7 @@ public class Menu_reservasi extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         label_totalHarga = new javax.swing.JLabel();
         label_totalDP = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_reset = new javax.swing.JButton();
 
         btn_pesan1.setText("PESAN");
         btn_pesan1.addActionListener(new java.awt.event.ActionListener() {
@@ -252,7 +254,7 @@ public class Menu_reservasi extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel9.setText("Jumlah");
+        jLabel9.setText("Jumlah Kursi");
 
         btn_buatReservasi.setText("BUAT RESERVASI");
         btn_buatReservasi.addActionListener(new java.awt.event.ActionListener() {
@@ -280,10 +282,10 @@ public class Menu_reservasi extends javax.swing.JFrame {
 
         label_totalDP.setText("Rp0");
 
-        jButton1.setText("RESET");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_reset.setText("RESET");
+        btn_reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_resetActionPerformed(evt);
             }
         });
 
@@ -337,8 +339,8 @@ public class Menu_reservasi extends javax.swing.JFrame {
                                     .addComponent(btn_pesan, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)))
-                        .addGap(0, 83, Short.MAX_VALUE))))
+                                .addComponent(btn_reset)))
+                        .addGap(0, 33, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,9 +376,9 @@ public class Menu_reservasi extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(combo_jam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel12)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8)))
@@ -393,7 +395,7 @@ public class Menu_reservasi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btn_reset))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -441,26 +443,16 @@ public class Menu_reservasi extends javax.swing.JFrame {
 
     private void btn_buatReservasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buatReservasiActionPerformed
         // TODO add your handling code here:
-        Object[] options = { "Batal", "Bayar" };
-                int confirm = JOptionPane.showOptionDialog(null, "Apakah Anda sudah yakin?", "Konfirmasi",
-                        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
-
-                if (confirm == JOptionPane.YES_OPTION) {
-                    // Tindakan jika "Bayar" dipilih
-                } else if (confirm == JOptionPane.NO_OPTION) {
-                    // Tindakan jika "Batal" dipilih
-                } else if (confirm == JOptionPane.CLOSED_OPTION) {
-                    // Tidak ada tindakan jika dialog ditutup tanpa memilih
-                }
+       
     }//GEN-LAST:event_btn_buatReservasiActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
         // TODO add your handling code here:
         textArea_pesanan.setText(""); // Menghapus semua item dari text area
         totalHarga = 0; // Mengatur ulang total harga menjadi 0
         label_totalHarga.setText("Rp0"); // Memperbarui label total harga
         label_totalDP.setText("Rp0");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_resetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,9 +509,9 @@ public class Menu_reservasi extends javax.swing.JFrame {
     public javax.swing.JButton btn_logout;
     public javax.swing.JButton btn_pesan;
     public javax.swing.JButton btn_pesan1;
+    private javax.swing.JButton btn_reset;
     private javax.swing.JComboBox<String> combo_jam;
     private javax.swing.JComboBox<String> combo_menu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
