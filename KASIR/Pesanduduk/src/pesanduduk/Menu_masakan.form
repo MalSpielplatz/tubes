@@ -120,7 +120,7 @@
           <Font name="Lucida Grande" size="24" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="ORDER"/>
+        <Property name="text" type="java.lang.String" value="DAFTAR MASAKAN"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -143,6 +143,9 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_id_masakanActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="text_nama_masakan">
     </Component>
@@ -318,7 +321,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_signup">
       <Properties>
-        <Property name="text" type="java.lang.String" value="MENU SIGN UP"/>
+        <Property name="text" type="java.lang.String" value="MENU USER"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>

@@ -117,6 +117,11 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
         jLabel3.setText("Username");
 
         text_id_user.setEnabled(false);
+        text_id_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_id_userActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel4.setText("Password");
@@ -267,6 +272,10 @@ public class Menu_signupPelanggan extends javax.swing.JFrame {
     private void text_levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_levelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_text_levelActionPerformed
+
+    private void text_id_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_id_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_id_userActionPerformed
 
     /**
      * @param args the command line arguments

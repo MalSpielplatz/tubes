@@ -152,32 +152,20 @@ public class Login extends javax.swing.JFrame {
                         sig.setVisible(true);
                         this.setVisible(false);
                         
-//                        Menu_masakan masakanadmin = new Menu_masakan();
-//                        masakanadmin.setVisible(true);
-//                        this.setVisible(false);
-//                        masakanadmin.btn_logout.setEnabled(true);
-//                        masakanadmin.btn_input.setEnabled(true);
-//                        masakanadmin.btn_update.setEnabled(true);
-//                        masakanadmin.btn_delete.setEnabled(true);
-                        
-                        break;
-//                    case "":
-//                        Menu_transaksi trans = new Menu_transaksi();
-//                        trans.setVisible(true);
-//                        this.setVisible(false);
-//                        break;
-                    case "Resto":
-                        Menu_transaksi trans2 = new Menu_transaksi();
-                        trans2.setVisible(true);
-                        this.setVisible(false);
-                        trans2.btn_cetak_laporan.setEnabled(true);
+//                       Menu_masakan masakanadmin = new Menu_masakan();
+//                       masakanadmin.setVisible(true);
+//                       this.setVisible(false);
+//                       masakanadmin.btn_logout.setEnabled(true);
+//                       masakanadmin.btn_input.setEnabled(true);
+//                       masakanadmin.btn_update.setEnabled(true);
+//                       masakanadmin.btn_delete.setEnabled(true);
                         
                         break;
                     case "Pelanggan":
-                        Menu_masakan masakan = new Menu_masakan();
-                        masakan.setVisible(true);
+                        Menu_reservasi reservasi = new Menu_reservasi();
+                        reservasi.setVisible(true);
                         this.setVisible(false);
-                        masakan.btn_logout.setEnabled(true);
+                        reservasi.btn_logout.setEnabled(true);
                         break;
                 }
             } else if (u.username.isEmpty() || (u.password.isEmpty())) {
