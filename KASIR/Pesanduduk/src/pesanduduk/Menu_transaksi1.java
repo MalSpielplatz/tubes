@@ -41,8 +41,8 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
     }
     
     class transaksi extends Menu_transaksi1{
-        int id_transaksi, id_masakan, kode_meja, harga_meja, jml_kursi, harga, jumlah_beli, total_bayar;
-        String nama_pelanggan, tanggal, nama_masakan;
+        int id_transaksi,kode_meja, total_bayar;
+        String nama_pelanggan, tanggal;
         int totalHarga = 0;
         public transaksi() {
             this.nama_pelanggan = text_nama_pelanggan.getText();
@@ -50,7 +50,7 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
             String combo1 = combo_id_meja.getSelectedItem().toString();
             String[] arr = combo.split(":");
             String[] meja = combo1.split(":");
-            this.id_masakan = Integer.parseInt(arr[0]);
+            
             this.kode_meja = Integer.parseInt(meja[0]);
             try {
                 Date date = text_tanggal.getDate();
@@ -59,12 +59,8 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
-            this.nama_masakan = arr[1];
-            this.harga = Integer.parseInt(arr[2]);
-            this.jml_kursi = Integer.parseInt(meja[1]);
-            this.harga_meja = Integer.parseInt(meja[2]);
             
-            this.total_bayar = (this.harga * this.jumlah_beli) + this.harga_meja;
+            
         }
         
         
@@ -77,16 +73,10 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
     
     public void refreshTable(){
         model = new DefaultTableModel();
-        model.addColumn("ID Tranaksi");
+        model.addColumn("ID Transaksi");
         model.addColumn("Nama Pelanggan");
-        model.addColumn("ID Masakan");
         model.addColumn("Kode Meja");
-        model.addColumn("Jumlah Kursi");
         model.addColumn("Tanggal");
-        model.addColumn("Nama Masakan");
-        model.addColumn("Harga");
-        model.addColumn("Harga Meja");
-        model.addColumn("Jumlah Beli");
         model.addColumn("Total Bayar");
         
         table_transaksi.setModel(model);
@@ -100,12 +90,7 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
-                    rs.getString(6),
-                    rs.getString(7),
-                    rs.getString(8),
-                    rs.getString(9),
-                    rs.getString(10),
-                    rs.getString(11)
+                   
                     
                 };
                 model.addRow(data);
@@ -635,26 +620,7 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         // TODO add your handling code here:
-        try {
-            transaksi tran = new transaksi();
-            tran.id_transaksi = Integer.parseInt(text_id_transaksi.getText());
-            this.stat = k.getKoneksi().prepareStatement("UPDATE transaksi SET nama_pelanggan=?, id_masakan=?, kode_meja=?, jml_kursi=?, tanggal=?, nama_masakan=?, harga=?, harga_meja=?, jumlah_beli=?, total_bayar=? where id_transaksi=?");
-            this.stat.setString(1, tran.nama_pelanggan);
-            this.stat.setInt(2, tran.id_masakan);
-            this.stat.setInt(3, tran.kode_meja);
-            this.stat.setInt(4, tran.jml_kursi);
-            this.stat.setString(5, tran.tanggal);
-            this.stat.setString(6, tran.nama_masakan);
-            this.stat.setInt(7, tran.harga);
-            this.stat.setInt(8, tran.harga_meja);
-            this.stat.setInt(9, tran.jumlah_beli);
-            this.stat.setInt(10, tran.total_bayar);
-            this.stat.setInt(11, tran.id_transaksi);
-            this.stat.executeUpdate();
-            refreshTable();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        
     }//GEN-LAST:event_btn_updateActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
@@ -669,34 +635,41 @@ public class Menu_transaksi1 extends javax.swing.JFrame {
 
     private void btn_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inputActionPerformed
         // TODO add your handling code here:
-        
-            transaksi tran = new transaksi();
-            text_total_bayar.setText(""+tran.total_bayar);
-            String sql = "INSERT INTO tbl_transaksi(id_transaksi, id_meja, id_masakan, kuantitas, jumlah_beli, nama_pelanggan, tanggal) VALUES(?,?,?,?,?,?,?)";
-            // Get the content of the text area
-            try {
-            this.stat = k.getKoneksi().prepareStatement("INSERT into transaksi Values(?,?,?,?,?,?,?,?,?,?,?)");
-
-            stat.setString(1, text_id_transaksi.getText());
-            stat.setString(2, combo_id_meja.getSelectedItem().toString());
-            stat.setString(3, combo_id_masakan.getSelectedItem().toString());
-            stat.setInt(4, Integer.parseInt(spinner_kuantitas.getValue().toString()));
             
-            stat.setString(5, text_nama_pelanggan.getText());
-            stat.setDate(6, new java.sql.Date(text_tanggal.getDate().getTime()));
+            transaksi tran = new transaksi();
+            int total_bayar = Integer.parseInt(text_total_bayar.getText());;
+            
+            
+            try {
+            this.stat = k.getKoneksi().prepareStatement("INSERT into transaksi Values(?,?,?,?,?)");
+            this.stat.setInt(1, 0);
+            this.stat.setString(2, tran.nama_pelanggan);
+            this.stat.setInt(3, tran.kode_meja);
+            this.stat.setString(4, tran.tanggal);
+            this.stat.setInt(5, total_bayar);
+            // Execute the insert statement
+            this.stat.executeUpdate();
 
-            int res = stat.executeUpdate();
+            // Update meja table status to "terisi"
+            //this.stat = k.getKoneksi().prepareStatement("UPDATE meja SET status_meja = 'Terisi' WHERE kode_meja = ?");
+            //this.stat.setInt(1, tran.kode_meja);
+            //this.stat.executeUpdate();
 
-            if (res > 0) {
-                JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
-            } else {
-                JOptionPane.showMessageDialog(this, "Data Gagal Ditambahkan");
+//            // Commit the transaction
+//            k.getKoneksi().commit();
+            int pilihan = JOptionPane.showConfirmDialog(null, "Tanggal: "+tran.tanggal+ 
+                                                            "\n Nama Pelanggan : "+tran.nama_pelanggan+
+                                                            "\n Total Bayar : "+tran.total_bayar+"\n",
+                                                            "Tambahkan Transaksi ?",
+                                                            JOptionPane.YES_NO_OPTION);
+            if (pilihan == JOptionPane.YES_OPTION) {
+                this.stat.executeUpdate();
+                refreshTable();
+            }else if(pilihan == JOptionPane.NO_OPTION){
+                refreshTable();
             }
-
-            loadTable();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Menu_transaksi1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     
          
